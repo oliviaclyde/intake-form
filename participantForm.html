@@ -6,35 +6,78 @@
        
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-    <title>Contact Us</title>
+    <title>contactUs</title>
     </head>
     <body>
-        <form action="https://my-json-server.typicode.com/JustUtahCoders/interview-users-api/users" method="POST">
+        <h1>Contact Us</h1>
+        <form name="newParticipant" action="https://my-json-server.typicode.com/JustUtahCoders/interview-users-api/users" onsubmit="return sucessMessage()" method="POST">
             <ul>
-                 <!-- Form validation -->
                 <li>
-                    <!-- Name can't be blank -->
                     <label for="name">Name:</label>
-                    <input type="text" id="name" name="user_name">
+                    <input type="text" id="name" name="userName">
                 </li>
-                <!-- Email can't be blank AND has to be valid -->
                 <li>
                     <label for="mail">Email:</label>
-                    <input type="email" id="mail" name="user_email">
+                    <input type="email" id="mail" name="userEmail">
                 </li>
                 <li>
-                    <!-- Can be blank but if not empty, must be a valid date -->
                     <label for="birthdate">Birth date:</label>
                     <input type="date" id="birthdate" name="user_birthdate">
                 </li>
             </ul>
-                <!-- Agreement to be contacted must be checked (true) -->
-        </form>
-                <!-- <Button></Button> -->
+             <!-- Agreement to be contacted must be checked (true) -->
+            <input type="checkbox" id="chkAgreement" value="agree"/>
+            <label for="chkAgreement">Check the box agreeing we can contact you!</label> 
+                          
+            <ul>
+            <ul class="button">
+                <button type="submit">Submit</button>
+            </ul>
+            <ul class="button">
+                <button type="clear">Clear</button>
+            </ul>
+        </form>        
 
 
     <!-- JavaScript -->
-
+    <script type="text/JavaScript">
+        function validateName() {
+            var name = document.forms["newParticipant"]["userName"];
+            if (name.value == "") {
+                alert("Please enter your name.");
+                name.focus();
+                return false;
+                
+                }
+        }
+        function validateEmailNotBlank() {
+            var email = document.forms["newParticipant"]["userEmail"]
+            if (email.value == "") {
+                alert("Please provide your email address.");
+                email.focus();
+                return false;
+                }
+            }
+        function validateEmailVaildAddress() {
+            var email = document.forms["newParticipant"]["userEmail"]
+            atSign = email.indexOf("@");
+            dot = email.lastIndexOf(".");
+            
+            if (atSign < 1 || (dot - atSign < 2)) {
+                alert("Please enter a valid email address.")
+                email.focus();
+                return false;
+            }
+        }
+        function validateBirthdate() {
+            pass
+        }
+            
+        function successMessage() {
+            alert("Thank you! The form has been sumbitted.")
+        }
+    
+    </script>
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
@@ -45,7 +88,8 @@
 
 
 
-
-
-
+<!-- Validate checkbox -->
+<!-- Debug bootstrap styling -->
+<!-- Write function to convert form data to JSON object for POST request -->
+<!-- Test submission via POSTMAN -->
 
