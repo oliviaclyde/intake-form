@@ -1,25 +1,8 @@
-const http = require('http');
+const express = require('express');
+const app = express();
+app.listen(3000, () => console.log('Listening at 3000...'));
+app.use(express.static('public'));
 
-const server = http.createServer(function (req, res) {
-    req.on('data', function (data) {
-        console.log(data);
-    });
-    req.on('end', function() {
-        res.setHeader('Content-Type', 'application/json');
-        res.setHeader('Access-Control-Allow-Origin', '*');
-        res.writeHead(200, 'OK');
-
-        res.end('\{ "data": "test" }');
-    });
-});
-
-
-server.listen(5000, (err) => {
-    if (err) {
-        console.log('error');
-        return;
-
-    }
-    console.log('Listening on port 5000...');
-
+app.post('/api', (request, response) => {
+    console.log(request);
 });
