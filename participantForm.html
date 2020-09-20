@@ -33,7 +33,7 @@
                 <button type="submit">Submit</button>
             </ul>
             <ul class="button">
-                <button type="clear">Clear</button>
+                <button type="clear" id="reset">Clear</button>
             </ul>
         </form>    
         
@@ -109,7 +109,15 @@
         function successMessage() {
             alert("Thank you! The form has been sumbitted.")
         }
-    
+        
+        document.getElementById("reset").onclick = function() {
+            document.getElementById("name").value = "";
+            document.getElementByID("mail").value = "";
+            document.getElementByID("birthdate").value = "";
+            document.getElementByID("chkAgreement").value = "";
+            
+        };
+
 
 
         
