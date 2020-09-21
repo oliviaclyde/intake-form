@@ -95,20 +95,21 @@ document.addEventListener('submit', function (event) {
         email: document.getElementById("mail").value,
         birthDate: document.getElementById("birthdate").value,
         emailConsent: true
-    }]
-
+    }];
     
+    console.log(data);
+  
 
     $.ajax({
         type: "POST",
-        url: 'http://localhost:3000/',
+        url: "https://my-json-server.typicode.com/JustUtahCoders/interview-users-api/users",
         data: JSON.stringify(data),
         success: successMessage(),
         dataType: "json",
         contentType : "application/json"
     });
     
-    console.log(data)
+    console.log(data);
 
 });
 
