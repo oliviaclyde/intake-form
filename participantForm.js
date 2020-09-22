@@ -3,8 +3,7 @@ function validateName() {
     if (name.value == "") {
         alert("Please enter your name.");
         name.focus();
-        return false;
-        
+        return false; 
         }
 };
 
@@ -71,12 +70,7 @@ function clearForm() {
     document.getElementById("mail").value = "";
     document.getElementById("birthdate").value = "";
     document.getElementById("chkAgreement").value = "";
-    
 };
-
-
-document.getElementById("reset").onclick = clearForm()
-
 
 
 document.addEventListener('submit', function (event) {
@@ -90,16 +84,14 @@ document.addEventListener('submit', function (event) {
 
 
     let data = [{
-        id: 1,
-        name: document.getElementById("name").value,
-        email: document.getElementById("mail").value,
-        birthDate: document.getElementById("birthdate").value,
-        emailConsent: true
+        "id": 1,
+        "name": document.getElementById("name").value,
+        "email": document.getElementById("mail").value,
+        "birthDate": document.getElementById("birthdate").value,
+        "emailConsent": true
     }];
-    
-    console.log(data);
-  
 
+  
     $.ajax({
         type: "POST",
         url: "https://my-json-server.typicode.com/JustUtahCoders/interview-users-api/users",
@@ -109,8 +101,6 @@ document.addEventListener('submit', function (event) {
         contentType : "application/json"
     });
     
-    console.log(data);
-
 });
 
 
